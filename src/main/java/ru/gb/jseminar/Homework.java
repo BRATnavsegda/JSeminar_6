@@ -2,8 +2,8 @@ package ru.gb.jseminar;
 
 import ru.gb.jseminar.data.Notebook;
 
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Homework {
 
@@ -15,16 +15,29 @@ public class Homework {
     // 4) Отфильтровать ноутбуки их первоначального множества и вывести проходящие по условиям.
     public static void main(String[] args) {
 
+        Homework hw = new Homework();
+        Notebook nout1 = new Notebook(1, "Sony", "white", 27, "Celeron R1000", 8, "Windows", 45000);
+        Notebook nout2 = new Notebook(2, "HP", "black", 23, "Celeron R1000f", 6, "Windows", 37000);
+        Notebook nout3 = new Notebook(3, "Lenovo", "grey", 17, "Celeron K2300", 4, "none", 23000);
+        List<Notebook> nouts = hw.initListNotebooks(nout1, nout2, nout3);
+        hw.printListNB(nouts);
+
     }
 
-    public List<Notebook> initListNotebooks(){
+    public List<Notebook> initListNotebooks(Notebook ...notebooks) {
 
-        return null;
+        return new ArrayList<>(Arrays.asList(notebooks));
     }
 
     public List<Notebook> filter(Map<String, String> params, List<Notebook> notebooks){
 
         return null;
+    }
+
+    public void printListNB(List <Notebook> notebookList) {
+        for ( Notebook i : notebookList) {
+            i.print();
+        }
     }
 
 }
